@@ -43,7 +43,11 @@ func StartSecureServer() {
 			return
 		}
 
-		fmt.Printf("[NAN Secure] PID=%d protocol=0x%02X method=0x%02X\n", uint64(packet.Sender().PID()), request.ProtocolID, request.MethodID)
+		fmt.Printf("[NAN Secure] PID=%d protocol=%s (0x%02X) method=0x%02X\n",
+			uint64(packet.Sender().PID()),
+			globals.GetProtocolName(request.ProtocolID),
+			request.ProtocolID,
+			request.MethodID)
 	})
 
 	SecureEndpoint.OnConnectionEnded(func(connection *nexgo.PRUDPConnection) {
