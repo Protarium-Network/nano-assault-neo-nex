@@ -12,7 +12,7 @@ same stack as this org's other servers.
 |-----------------|-------|
 | Game server ID  | `10110100` |
 | Access key      | `7e484a8e` |
-| NEX SDK version | `3.0.1` |
+| NEX library version | `3.0.1` |
 
 ## How the game talks to the server
 
