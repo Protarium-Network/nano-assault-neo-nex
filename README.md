@@ -91,7 +91,7 @@ sequenceDiagram
 The secure server logs every incoming call:
 
 ```
-[NAN Secure] PID=<pid> protocol=0x70 method=0x09
+[NAN Secure] PID=<pid> protocol=Ranking (0x70) method=0x09
 ```
 
 If the game seems stuck, look at the last `protocol` / `method` pair. A call
