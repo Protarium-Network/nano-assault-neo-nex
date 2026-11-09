@@ -21,6 +21,7 @@ func StartAuthenticationServer() {
 
 	// Wrong value = 106-0502 / endless CONNECT retransmit. Most 3.4.13 titles
 	// on this stack need false; flip with PN_WO3_LEGACY_SIGNATURE=1.
+	// LegacyConnectionSignature=True if the NEX version is lower than 3.2.0
 	AuthenticationServer.PRUDPV1Settings.LegacyConnectionSignature = globals.LegacyConnectionSignature
 
 	AuthenticationEndpoint = nex.NewPRUDPEndPoint(1)
@@ -32,6 +33,7 @@ func StartAuthenticationServer() {
 	AuthenticationServer.LibraryVersions.SetDefault(nex.NewLibraryVersion(globals.NEXMajor, globals.NEXMinor, globals.NEXPatch))
 	AuthenticationServer.AccessKey = globals.AccessKey
 
+	// UseStructureHeader=True if the NEX version is lower than 3.3.0
 	AuthenticationServer.ByteStreamSettings.UseStructureHeader = false
 
 	AuthenticationEndpoint.OnData(func(packet nex.PacketInterface) {
